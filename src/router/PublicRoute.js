@@ -1,14 +1,11 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { useAuthState } from '../context/auth-context';
 
 export const PublicRoute = ({
-  isAutheticated,
+  isActive,
   component: Component,
   ...rest
 }) => {
-  const {isActive} = useAuthState();
-  console.log(isActive);
 
   return (
     <Route

@@ -108,7 +108,7 @@ export const StartPage = () => {
         <img src={home} alt=""/>
       </Image>
       <ContainerButton>
-        <Link to="/home/login">
+        <Link to="/public/login">
           Comenzar
         </Link>
       </ContainerButton>

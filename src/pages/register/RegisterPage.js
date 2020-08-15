@@ -103,7 +103,7 @@ export const RegisterPage = () => {
         </InputPassword>
         <OtherButtons>
           <button>Crear cuenta</button>
-          <Link to="/home/login">Inicia sesion</Link>
+          <Link to="/login">Inicia sesion</Link>
         </OtherButtons>
       </form>
     </FormContainer>

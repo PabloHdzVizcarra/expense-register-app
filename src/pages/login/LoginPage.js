@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { firebaseLoginWithGoogle } from '../../helpers/firebase-login-google';
 import { useAuthDispatch } from '../../context/auth-context';
@@ -36,6 +36,8 @@ export const OtherButtons = styled.div`
 
 export const LoginPage = () => {
   const setUser = useAuthDispatch();
+  const history = useHistory();
+  console.log(history);
   const [errorForm, setErrorForm] = useState({
     error: false,
     message: "",
@@ -53,12 +55,14 @@ export const LoginPage = () => {
     console.log(inputValues);
   }
 
-  const handleLoginWithGoogle = (event) => {
+  const handleLoginWithGoogle = async (event) => {
     event.preventDefault();
     console.log('Login firebase');
 
-    firebaseLoginWithGoogle(setUser, setErrorForm)
-
+    const successful = await firebaseLoginWithGoogle(setUser, setErrorForm)
+    if (successful) {
+      history.push("/");
+    }
   }
 
   return (
@@ -93,7 +97,7 @@ export const LoginPage = () => {
           >
             Iniciar Sesion
           </button>
-          <Link to="/home/register">
+          <Link to="/register">
             Registrarte
           </Link>
           <button

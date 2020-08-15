@@ -8,9 +8,9 @@ export const PageRouter = () => {
   return (
     <div>
       <Switch>
-        <Route path="/home/" component={StartPage} />
-        <Route exact path="/home/login" component={LoginPage} />
-        <Route exact path="/home/register" component={RegisterPage} />
+        <Route exact path="/public" component={StartPage} />
+        <Route exact path="/public/login" component={LoginPage} />
+        <Route exact path="/public/register" component={RegisterPage} />
       </Switch>
     </div>
   )

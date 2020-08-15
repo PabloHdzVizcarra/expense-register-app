@@ -1,22 +1,25 @@
-import { firebase } from '../libs/firebase';
+import { firebase } from "../libs/firebase";
 
-export const firebaseGetActiveUser = async (setUser, setIsLoading) => {
-
-  firebase.auth().onAuthStateChanged(function(user) {
+export const firebaseGetActiveUser = (setUser, setIsLoading) => {
+  firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
+      console.log(user);
       const { displayName, email, emailVerified, uid } = user;
-      
+
       setUser({
         isActive: true,
         activeUserData: {
-          displayName, email, emailVerified, uid
-        }
+          displayName,
+          email,
+          emailVerified,
+          uid,
+        },
       });
 
       setIsLoading(false);
     } else {
       // No user is signed in.
-      setIsLoading(false);
+      setIsLoading(true);
     }
   });
-}
+};
