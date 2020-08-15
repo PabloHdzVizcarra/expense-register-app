@@ -1,24 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { validateUser } from "../../helpers/validate-user";
 import { firebaseUserRegister } from "../../helpers/firebase-user-register";
-import { useAuthDispatch } from "../../context/auth-context";
-import { FormContainer, InputUser, InputEmail, InputPassword, OtherButtons } from "./RegisterPageStyles";
+import { FormContainer, InputData, OtherButtons, Button, ContainLoginPage, ErrorParagraph, Paragraph } from "../login/loginPageStyles";
+
 
 export const RegisterPage = () => {
-  const setUser = useAuthDispatch();
   const [errorForm, setErrorForm] = useState({
     error: false,
     message: "",
   });
 
   const [inputValues, handleInputChange, reset] = useForm({
-    userName: "pablo",
-    email: "correo@correo.com",
-    password: "123456",
-    confirmPassword: "123456",
+    userName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
+
+  useEffect(() => {
+    
+    return () => {
+      setErrorForm({
+        error: false,
+        message: "",
+      });
+    }
+  }, [])
 
   const { userName, email, password, confirmPassword } = inputValues;
 
@@ -38,31 +47,16 @@ export const RegisterPage = () => {
       message: "",
     });
 
-    const user = await firebaseUserRegister(inputValues, setErrorForm);
-
-    if (user) {
-      const { displayName, email, emailVerified, uid } = user;
-      setUser({
-        isActive: true,
-        activeUserData: {
-          displayName,
-          email,
-          emailVerified,
-          uid,
-        },
-      });
-      console.log('USUARIO CREADO CON EXITO');
-    }
-
+    firebaseUserRegister(inputValues, setErrorForm);
     reset();
   };
 
   return (
-    <FormContainer onSubmit={handleUserRegister}>
-      <form>
-        {errorForm.error && <p>{errorForm.message}</p>}
-        <p>Para comenzar puedes iniciar sesion o registrarte</p>
-        <InputUser>
+    <ContainLoginPage onSubmit={handleUserRegister}>
+      {(errorForm.error) ? <ErrorParagraph>{errorForm.message}</ErrorParagraph> : null}
+      <FormContainer>
+        <Paragraph>Para comenzar puedes iniciar sesion o registrarte</Paragraph>
+        <InputData>
           <label>Nombre de Usuario</label>
           <input
             type="text"
@@ -71,8 +65,8 @@ export const RegisterPage = () => {
             value={userName}
             onChange={handleInputChange}
           />
-        </InputUser>
-        <InputEmail>
+        </InputData>
+        <InputData>
           <label>Correo Electronico</label>
           <input
             type="email"
@@ -81,8 +75,8 @@ export const RegisterPage = () => {
             value={email}
             onChange={handleInputChange}
           />
-        </InputEmail>
-        <InputPassword>
+        </InputData>
+        <InputData>
           <label>Contraseña</label>
           <input
             type="password"
@@ -91,8 +85,8 @@ export const RegisterPage = () => {
             value={password}
             onChange={handleInputChange}
           />
-        </InputPassword>
-        <InputPassword>
+        </InputData>
+        <InputData>
           <label>Confirmar Contraseña</label>
           <input
             type="password"
@@ -100,12 +94,12 @@ export const RegisterPage = () => {
             value={confirmPassword}
             onChange={handleInputChange}
           />
-        </InputPassword>
+        </InputData>
         <OtherButtons>
-          <button>Crear cuenta</button>
-          <Link to="/login">Inicia sesion</Link>
+          <Button>Crear cuenta</Button>
+          <Link to="/public/login">Inicia sesion</Link>
         </OtherButtons>
-      </form>
-    </FormContainer>
+      </FormContainer>
+    </ContainLoginPage>
   );
 };

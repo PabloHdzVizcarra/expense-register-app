@@ -9,13 +9,7 @@ export const firebaseUserRegister = async (
       .auth()
       .createUserWithEmailAndPassword(email, password);
     await user.updateProfile({ displayName: userName });
-
-    setErrorForm({
-      error: false,
-      message: "",
-    });
-
-    return user;
+    console.log('USUARIO CREADO CON EXITO');
   } catch (error) {
     console.log(error);
 

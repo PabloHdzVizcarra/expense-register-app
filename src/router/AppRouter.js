@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
+  Redirect,
 } from "react-router-dom";
 import { HomePage } from '../pages/home-page/HomePage';
 import { PrivateRoute } from './PrivateRoute';
@@ -12,13 +13,12 @@ import { PageRouter } from './PageRouter';
 
 export const AppRouter = () => {
 
-  const [{ isActive, activeUserData }, dispatch] = useAuth();
+  const [{ isActive }, dispatch] = useAuth();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     firebaseGetActiveUser(dispatch, setIsLoading);
   }, [dispatch]);
-  console.log(isActive);
 
   if (isLoading) {
     return <p>Loading</p>
@@ -43,6 +43,7 @@ export const AppRouter = () => {
             path="/"
           />
 
+          <Redirect to="/"/>
         </Switch>
       </div>
     </Router>

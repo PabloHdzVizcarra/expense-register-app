@@ -1,79 +1,66 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Link, useHistory } from 'react-router-dom';
-import { useForm } from '../../hooks/useForm';
-import { firebaseLoginWithGoogle } from '../../helpers/firebase-login-google';
-import { useAuthDispatch } from '../../context/auth-context';
-
-export const FormContainer = styled.div`
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  form {
-    display: grid;
-    gap: 1rem;
-  }
-`;
-
-export const InputEmail = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const InputPassword = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const OtherButtons = styled.div`
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-`;
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
+import { firebaseLoginWithGoogle } from "../../helpers/firebase-login-google";
+import { firebaseSignInWithEmailAndPassword } from "./helper-firebase-signIn";
+import {
+  ContainLoginPage,
+  FormContainer,
+  OtherButtons,
+  InputData,
+  Paragraph,
+  ErrorParagraph,
+  Button,
+} from "./loginPageStyles";
 
 export const LoginPage = () => {
-  const setUser = useAuthDispatch();
-  const history = useHistory();
-  console.log(history);
   const [errorForm, setErrorForm] = useState({
     error: false,
     message: "",
   });
 
   const [inputValues, handleInputChange] = useForm({
-    email: 'correo@correo.com',
-    password: '123456',
+    email: "correo@correo.com",
+    password: "123456",
   });
-  
+
+  useEffect(() => {
+    return () => {
+      setErrorForm({
+        error: false,
+        message: "",
+      });
+    };
+  }, []);
+
   const { email, password } = inputValues;
 
   const handleUserLogin = (event) => {
     event.preventDefault();
-    console.log(inputValues);
-  }
+    firebaseSignInWithEmailAndPassword(email, password, setErrorForm);
+  };
 
   const handleLoginWithGoogle = async (event) => {
     event.preventDefault();
-    console.log('Login firebase');
 
-    const successful = await firebaseLoginWithGoogle(setUser, setErrorForm)
-    if (successful) {
-      history.push("/");
-    }
-  }
+    firebaseLoginWithGoogle(setErrorForm);
+    console.log("Login firebase");
+  };
 
   return (
-    <FormContainer>
-      <form>
-        {(errorForm.error)
-          ? <p>{errorForm.message}</p> 
-          : null
-        }
-        <p>Para comenzar puedes iniciar sesion con tu cuenta de google o registrarte</p>
-        <InputEmail>
+    <ContainLoginPage>
+      {errorForm.error ? (
+        <ErrorParagraph className="animate__animated animate__fadeIn">
+          {errorForm.message}
+        </ErrorParagraph>
+      ) : null}
+      <FormContainer>
+        <Paragraph>
+          {" "}
+          Para comenzar puedes iniciar sesion con tu cuenta de google o
+          registrarte
+        </Paragraph>
+        <InputData>
           <label>Correo Electronico</label>
           <input
             type="email"
@@ -81,8 +68,8 @@ export const LoginPage = () => {
             name="email"
             onChange={handleInputChange}
           />
-        </InputEmail>
-        <InputPassword>
+        </InputData>
+        <InputData>
           <label>Contraseña</label>
           <input
             type="password"
@@ -90,23 +77,13 @@ export const LoginPage = () => {
             name="password"
             onChange={handleInputChange}
           />
-        </InputPassword>
+        </InputData>
         <OtherButtons>
-          <button
-            onClick={handleUserLogin}
-          >
-            Iniciar Sesion
-          </button>
-          <Link to="/register">
-            Registrarte
-          </Link>
-          <button
-            onClick={handleLoginWithGoogle}
-          >
-            Google
-          </button>
+          <Button onClick={handleUserLogin}>Iniciar Sesion</Button>
+          <Button onClick={handleLoginWithGoogle}>Google</Button>
+          <Link to="/public/register">Registrarte</Link>
         </OtherButtons>
-      </form>
-    </FormContainer>
-  )
-}
+      </FormContainer>
+    </ContainLoginPage>
+  );
+};

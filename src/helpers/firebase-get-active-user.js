@@ -19,7 +19,7 @@ export const firebaseGetActiveUser = (setUser, setIsLoading) => {
       setIsLoading(false);
     } else {
       // No user is signed in.
-      setIsLoading(true);
+      setIsLoading(false);
     }
   });
 };
