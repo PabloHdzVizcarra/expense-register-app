@@ -12,6 +12,7 @@ import {
   ErrorParagraph,
   Button,
 } from "./loginPageStyles";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const LoginPage = () => {
   const [errorForm, setErrorForm] = useState({
@@ -35,7 +36,7 @@ export const LoginPage = () => {
 
   const { email, password } = inputValues;
 
-  const handleUserLogin = (event) => {
+  const handleUserLogin = async(event) => {
     event.preventDefault();
     firebaseSignInWithEmailAndPassword(email, password, setErrorForm);
   };
@@ -49,41 +50,40 @@ export const LoginPage = () => {
 
   return (
     <ContainLoginPage>
-      {errorForm.error ? (
-        <ErrorParagraph className="animate__animated animate__fadeIn">
-          {errorForm.message}
-        </ErrorParagraph>
-      ) : null}
-      <FormContainer>
-        <Paragraph>
-          {" "}
-          Para comenzar puedes iniciar sesion con tu cuenta de google o
-          registrarte
-        </Paragraph>
-        <InputData>
-          <label>Correo Electronico</label>
-          <input
-            type="email"
-            value={email}
-            name="email"
-            onChange={handleInputChange}
-          />
-        </InputData>
-        <InputData>
-          <label>Contraseña</label>
-          <input
-            type="password"
-            value={password}
-            name="password"
-            onChange={handleInputChange}
-          />
-        </InputData>
-        <OtherButtons>
-          <Button onClick={handleUserLogin}>Iniciar Sesion</Button>
-          <Button onClick={handleLoginWithGoogle}>Google</Button>
-          <Link to="/public/register">Registrarte</Link>
-        </OtherButtons>
-      </FormContainer>
+        {errorForm.error ? (
+          <ErrorParagraph className="animate__animated animate__fadeIn">
+            {errorForm.message}
+          </ErrorParagraph>
+        ) : null}
+        <FormContainer>
+          <Paragraph>
+            Para comenzar puedes iniciar sesion con tu cuenta de google o
+            registrarte
+          </Paragraph>
+          <InputData>
+            <label>Correo Electronico</label>
+            <input
+              type="email"
+              value={email}
+              name="email"
+              onChange={handleInputChange}
+            />
+          </InputData>
+          <InputData>
+            <label>Contraseña</label>
+            <input
+              type="password"
+              value={password}
+              name="password"
+              onChange={handleInputChange}
+            />
+          </InputData>
+          <OtherButtons>
+            <Button onClick={handleUserLogin}>Iniciar Sesion</Button>
+            <Button onClick={handleLoginWithGoogle}>Google</Button>
+            <Link to="/public/register">Registrarte</Link>
+          </OtherButtons>
+        </FormContainer>
     </ContainLoginPage>
   );
 };

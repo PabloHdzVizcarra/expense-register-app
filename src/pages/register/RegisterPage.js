@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { validateUser } from "../../helpers/validate-user";
 import { firebaseUserRegister } from "../../helpers/firebase-user-register";
-import { FormContainer, InputData, OtherButtons, Button, ContainLoginPage, ErrorParagraph, Paragraph } from "../login/loginPageStyles";
+import { InputData, OtherButtons, Button, ContainLoginPage, ErrorParagraph, Paragraph } from "../login/loginPageStyles";
+import { FormContainer } from './RegisterPageStyles';
 
 
 export const RegisterPage = () => {
@@ -31,7 +32,7 @@ export const RegisterPage = () => {
 
   const { userName, email, password, confirmPassword } = inputValues;
 
-  const handleUserRegister = async (event) => {
+  const handleUserRegister = (event) => {
     event.preventDefault();
     const [error, message] = validateUser(inputValues);
 
