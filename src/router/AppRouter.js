@@ -23,8 +23,7 @@ export const AppRouter = () => {
   if (isLoading) {
     return <p>Loading</p>
   }
-
-  console.log(isActive);
+  
   return (
     <Router>
       <div>

@@ -3,7 +3,6 @@ import { firebase } from "../libs/firebase";
 export const firebaseGetActiveUser = (setUser, setIsLoading) => {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      console.log(user);
       const { displayName, email, emailVerified, uid } = user;
 
       setUser({

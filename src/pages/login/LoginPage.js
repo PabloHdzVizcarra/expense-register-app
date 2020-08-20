@@ -12,7 +12,6 @@ import {
   ErrorParagraph,
   Button,
 } from "./loginPageStyles";
-import 'react-toastify/dist/ReactToastify.css';
 
 export const LoginPage = () => {
   const [errorForm, setErrorForm] = useState({
