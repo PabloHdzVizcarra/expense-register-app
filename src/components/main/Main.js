@@ -10,7 +10,7 @@ export const Main = () => {
     <ExpensesProvider>
       <MainContainer>
         <GridContainer>
-          <Budget/>
+          <Budget />
           <Expenses />
         </GridContainer>
       </MainContainer>

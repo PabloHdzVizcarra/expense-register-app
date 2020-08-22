@@ -9,6 +9,9 @@ function ExpensesProvider({ children }) {
     currentBudget: {},
     expenses: [],
     budgetList: [],
+    valueOfExpenditure: [],
+    currentMoney: 0,
+    amountOfExpenditure: 0
   })
 
   return (

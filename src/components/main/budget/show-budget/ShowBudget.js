@@ -1,13 +1,23 @@
-import React from 'react';
-import { Paragraph, ParagraphMoney, ButtonDelete } from './Styles';
+import React from "react";
+import { Paragraph, ParagraphMoney, ButtonDelete } from "./Styles";
+import PropTypes from "prop-types";
 
-export const ShowBudget = ({ currentBudget }) => {
-  const { money } = currentBudget
+export const ShowBudget = ({
+  handleDeleteBudget,
+  currentMoney,
+}) => {
   return (
     <div>
       <Paragraph>Tu presupuesto es de</Paragraph>
-      <ParagraphMoney>${money}</ParagraphMoney>
-      <ButtonDelete>Eliminar presupuesto</ButtonDelete>
+      <ParagraphMoney>${currentMoney}</ParagraphMoney>
+      <ButtonDelete onClick={handleDeleteBudget}>
+        Eliminar presupuesto
+      </ButtonDelete>
     </div>
-  )
+  );
+};
+
+ShowBudget.propTypes = {
+  handleDeleteBudget: PropTypes.func.isRequired,
+  currentMoney: PropTypes.number.isRequired
 }

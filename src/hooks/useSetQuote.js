@@ -25,6 +25,7 @@ export const useSetQuote = (dispatch, userData) => {
     setValue,
     handleSetMoney,
     isOpenInput,
-    setIsOpenInput
+    setIsOpenInput,
+    value
   ];
 }

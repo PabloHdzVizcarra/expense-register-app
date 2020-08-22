@@ -1,5 +1,6 @@
 import React from "react";
 import { CashInput, Button } from "./Styles";
+import PropTypes from 'prop-types';
 
 export const FormBudget = ({ handleSetMoney, setValue }) => {
   return (
@@ -21,3 +22,8 @@ export const FormBudget = ({ handleSetMoney, setValue }) => {
     </form>
   );
 };
+
+FormBudget.propTypes = {
+  handleSetMoney: PropTypes.func.isRequired,
+  setValue: PropTypes.func.isRequired
+}
