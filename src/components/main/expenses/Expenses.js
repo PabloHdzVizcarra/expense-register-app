@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { LayoutContainer } from "./expense-styles";
 import { ExpenseForm } from "./form-expenses/ExpenseForm";
 import { ListExpenses } from "./list-expenses/ListExpenses";
@@ -6,16 +6,12 @@ import { useExpenses } from "../../../context/expenses-context";
 import { useAuthState } from "../../../context/auth-context";
 import { createExpense } from "./form-expenses/create-expense";
 import { useForm } from "../../../hooks/useForm";
-import {
-  setSpendingFirebase,
-  getAllExpensesInBudget,
-} from "../../../actions/expense-actions";
+import { setSpendingFirebase } from "../../../actions/expense-actions";
+import { validateExpenseForm } from "./validate-expense-form";
+import { ErrorMessage } from "../../errorMessage/ErrorMessage";
 
 export const Expenses = () => {
-  const [
-    { currentBudget, expenses },
-    dispatchExpense,
-  ] = useExpenses();
+  const [{ currentBudget, expenses }, dispatchExpense] = useExpenses();
   const {
     activeUserData: { uid },
   } = useAuthState();
@@ -25,20 +21,32 @@ export const Expenses = () => {
     category: "",
     cost: "",
   });
-  useEffect(() => {
-    if (currentBudget.expenses?.length === 0) {
-      getAllExpensesInBudget(uid, currentBudget.id, dispatchExpense);
-    }
-  }, [currentBudget, dispatchExpense, uid]);
+  const [error, setError] = useState({
+    error: false,
+    message: ''
+  });
 
   function handleExpenseSubmit(event) {
     event.preventDefault();
+    const [ error, message] = validateExpenseForm(inputValues);
+    if (error) {
+      return setError({
+        error: true,
+        message
+      })
+    }
+
+    setError({
+      error: false,
+      message: ''
+    })
+    
     const expense = createExpense(inputValues, currentBudget.id, uid);
     setSpendingFirebase(expense, dispatchExpense, uid);
     setIsOpen(false);
     reset();
   }
-  
+
   if (!currentBudget?.id) {
     return null;
   }
@@ -55,6 +63,11 @@ export const Expenses = () => {
           handleInputChange={handleInputChange}
           handleExpenseSubmit={handleExpenseSubmit}
         />
+        )}
+      {error.error ? (
+        <ErrorMessage message={error.message} />
+      ): (
+        null
       )}
     </LayoutContainer>
   );

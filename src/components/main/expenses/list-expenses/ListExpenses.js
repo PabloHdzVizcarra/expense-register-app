@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Expense } from "../expense/Expense";
+import { Button } from "./styles";
 
 export const ListExpenses = ({ listExpenses, setIsOpen }) => {
   return (
     <div>
       {listExpenses.length === 0 ? (
-        <p>Felicidades no tienes ningun gasto, pero puedes agregar alguno</p>
+        <p>No tienes ningun gasto, pero puedes comezar a agregarlos cuando gustes</p>
       ) : (
         <div>
           {listExpenses.map(
@@ -25,7 +26,7 @@ export const ListExpenses = ({ listExpenses, setIsOpen }) => {
           )}
         </div>
       )}
-      <button onClick={() => setIsOpen(true)}>Agregar gasto</button>
+      <Button onClick={() => setIsOpen(true)}>Agregar gasto</Button>
     </div>
   );
 };

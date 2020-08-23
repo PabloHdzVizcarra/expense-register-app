@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ContainerExpense, Name, TimeParagraph, NameAndIcon } from "./Styles";
+import { ContainerExpense, Name, TimeParagraph, NameAndIcon, Button } from "./Styles";
 import { deleteExpenseFromFirebase } from "../../../../actions/expense-actions";
 import { useExpensesDispatch } from "../../../../context/expenses-context";
 
@@ -24,7 +24,7 @@ export const Expense = ({
     <ContainerExpense>
       <NameAndIcon>
         <Name>{name}</Name>
-        <button onClick={handleDeleteExpense}>Eliminar</button>
+        <Button onClick={handleDeleteExpense}>Eliminar</Button>
       </NameAndIcon>
       <Name>{category}</Name>
       <Name>{cost}</Name>

@@ -8,7 +8,7 @@ export const ContainerNavIcons = styled.div`
   padding-top: 10px;
   grid-row: 2 / 3;
   grid-column: 1 /2;
-  background-color: #f3f1f1;
+  background-color: #fff;
   border: 1px solid rgba(0, 0, 0, .1);
 `;
 

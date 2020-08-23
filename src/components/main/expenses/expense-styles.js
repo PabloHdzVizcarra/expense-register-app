@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LayoutContainer = styled.div`
-  background-color: #E8EAF6;
+  background-color: #fff;
   grid-column: 1/4;
   grid-row: 2/4;
   padding: 1rem;

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { validateUser } from "../../helpers/validate-user";
 import { firebaseUserRegister } from "../../helpers/firebase-user-register";
-import { InputData, OtherButtons, Button, ContainLoginPage, ErrorParagraph, Paragraph } from "../login/loginPageStyles";
-import { FormContainer } from './RegisterPageStyles';
+import { InputData, OtherButtons, Button, ContainLoginPage, ErrorParagraph, Paragraph } from "../login/styles";
+import { FormContainer } from './styles';
 
 
 export const RegisterPage = () => {

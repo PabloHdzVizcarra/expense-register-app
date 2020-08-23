@@ -11,7 +11,7 @@ import {
   Paragraph,
   ErrorParagraph,
   Button,
-} from "./loginPageStyles";
+} from "./styles";
 
 export const LoginPage = () => {
   const [errorForm, setErrorForm] = useState({

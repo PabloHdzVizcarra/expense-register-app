@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavBar } from '../../components/navbar/NavBar'
-import { HomeContainer } from './HomePageStyles'
+import { HomeContainer } from './styles'
 import { NavIcons } from '../../components/nav-icons/NavIcons'
 import { Main } from '../../components/main/Main'
 import { Footer } from '../../components/footer/Footer'

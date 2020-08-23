@@ -9,7 +9,7 @@ export const QuoteContainer = styled.div`
   align-items: center;
   justify-content: center;
   font-family: 'Titillium Web', sans-serif;
-  background-color: #BBDEFB;
+  background-color: #fff;
   padding-bottom: 16px;
 `;
 

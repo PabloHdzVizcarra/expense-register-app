@@ -1,6 +1,6 @@
 import React from 'react';
 import { Budget } from './budget/Budget';
-import { MainContainer, GridContainer } from './MainStyles';
+import { MainContainer, GridContainer } from './styles';
 import { Expenses } from './expenses/Expenses';
 import { ExpensesProvider } from '../../context/expenses-context';
 

@@ -42,22 +42,6 @@ export function expensesReducer(state = {}, action) {
         expenses: state.expenses.filter(expense => expense.id !== action.payload.id),
         currentMoney: state.currentMoney + action.payload.cost
       }
-    case types.setCostsToList:
-      return {
-        ...state,
-        valueOfExpenditure: action.payload
-      }
-    case types.deductMoneyFromBudget:
-      return {
-        ...state,
-        currentMoney: state.currentMoney - action.payload,
-        valueOfExpenditure: [...state.valueOfExpenditure, action.payload]
-      }
-    case types.deductMoneyFromAllExpenses:
-      return {
-        ...state,
-        currentMoney: action.payload.reduce((acc, curr) => acc - curr, state.currentMoney)
-      }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
     }

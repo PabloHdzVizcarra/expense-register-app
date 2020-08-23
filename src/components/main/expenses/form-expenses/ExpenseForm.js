@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, TitleContainer, IconClose } from "./ExpenseForm-styles";
+import { Form, TitleContainer, IconClose, Button, InputLabel, Input, Select } from "./styles";
 import PropTypes from "prop-types";
 
 export const ExpenseForm = ({
@@ -19,8 +19,8 @@ export const ExpenseForm = ({
         </IconClose>
       </TitleContainer>
       <div>
-        <label>Nombre</label>
-        <input
+        <InputLabel>Nombre</InputLabel>
+        <Input
           type="text"
           name="name"
           onChange={handleInputChange}
@@ -28,25 +28,25 @@ export const ExpenseForm = ({
         />
       </div>
       <div>
-        <label>Categoria</label>
-        <select name="category" onChange={handleInputChange} value={category}>
+        <InputLabel>Categoria</InputLabel>
+        <Select name="category" onChange={handleInputChange} value={category}>
           <option value="nothing">...</option>
           <option value="fun">Entretenimiento</option>
           <option value="food">Comida</option>
           <option value="transport">Transporte</option>
           <option value="debts">Deudas</option>
-        </select>
+        </Select>
       </div>
       <div>
-        <label>Costo</label>
-        <input
+        <InputLabel>Costo</InputLabel>
+        <Input
           type="text"
           name="cost"
           onChange={handleInputChange}
           value={cost}
         />
       </div>
-      <button>Agregar</button>
+      <Button>Agregar</Button>
     </Form>
   );
 };

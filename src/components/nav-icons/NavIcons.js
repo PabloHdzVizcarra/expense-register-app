@@ -1,5 +1,5 @@
 import React from 'react'
-import { ContainerNavIcons, IconStyle } from './NavIconsStyles'
+import { ContainerNavIcons, IconStyle } from './styles'
 import { NavLink } from 'react-router-dom'
 
 export const NavIcons = () => {

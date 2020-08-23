@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav, MainTitle, ButtonDelete } from './NavBarStyles'
+import { Nav, MainTitle, ButtonDelete } from './styles'
 import { firebaseSignOut } from './firebase-sign-out';
 import { useAuthDispatch } from '../../context/auth-context';
 
