@@ -43,7 +43,7 @@ export const Expenses = () => {
     
     const expense = createExpense(inputValues, currentBudget.id, uid);
     setSpendingFirebase(expense, dispatchExpense, uid);
-    setIsOpen(false);
+    setIsOpen(isOpen => !isOpen);
     reset();
   }
 

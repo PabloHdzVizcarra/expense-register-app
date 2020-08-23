@@ -20,8 +20,8 @@ export const LoginPage = () => {
   });
 
   const [inputValues, handleInputChange] = useForm({
-    email: "correo@correo.com",
-    password: "123456",
+    email: "",
+    password: "",
   });
 
   useEffect(() => {
@@ -50,7 +50,10 @@ export const LoginPage = () => {
   return (
     <ContainLoginPage>
         {errorForm.error ? (
-          <ErrorParagraph className="animate__animated animate__fadeIn">
+          <ErrorParagraph
+            className="animate__animated animate__fadeIn"
+            data-testid="error-message"
+          >
             {errorForm.message}
           </ErrorParagraph>
         ) : null}

@@ -10,8 +10,12 @@ export const validateUser = (data) => {
     return [true, "El email que ingresaste no es valido"];
   }
 
+  if (password.length < 6 ) {
+    return [true, "La contraseña debe ser mayor a 6 caracteres"];
+  }
+
   if (password !== confirmPassword) {
-    return [true, "Las contraseñas no coinciden"];
+    return [true, "Las contraseñas no son iguales"];
   }
 
   return [false, ""];

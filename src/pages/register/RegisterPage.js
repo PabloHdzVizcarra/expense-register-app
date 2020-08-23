@@ -3,9 +3,15 @@ import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { validateUser } from "../../helpers/validate-user";
 import { firebaseUserRegister } from "../../helpers/firebase-user-register";
-import { InputData, OtherButtons, Button, ContainLoginPage, ErrorParagraph, Paragraph } from "../login/styles";
-import { FormContainer } from './styles';
-
+import {
+  InputData,
+  OtherButtons,
+  Button,
+  ContainLoginPage,
+  ErrorParagraph,
+  Paragraph,
+} from "../login/styles";
+import { FormContainer } from "./styles";
 
 export const RegisterPage = () => {
   const [errorForm, setErrorForm] = useState({
@@ -21,14 +27,13 @@ export const RegisterPage = () => {
   });
 
   useEffect(() => {
-    
     return () => {
       setErrorForm({
         error: false,
         message: "",
       });
-    }
-  }, [])
+    };
+  }, []);
 
   const { userName, email, password, confirmPassword } = inputValues;
 
@@ -54,7 +59,11 @@ export const RegisterPage = () => {
 
   return (
     <ContainLoginPage onSubmit={handleUserRegister}>
-      {(errorForm.error) ? <ErrorParagraph>{errorForm.message}</ErrorParagraph> : null}
+      {errorForm.error ? (
+        <ErrorParagraph data-testid="error-message">
+          {errorForm.message}
+        </ErrorParagraph>
+      ) : null}
       <FormContainer>
         <Paragraph>Para comenzar puedes iniciar sesion o registrarte</Paragraph>
         <InputData>

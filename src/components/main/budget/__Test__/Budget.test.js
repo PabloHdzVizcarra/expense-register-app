@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent, cleanup, waitForElementToBeRemoved } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { Budget } from '../Budget'
 import { AuthStateContext } from '../../../../context/auth-context'
 import { ExpensesProvider, ExpensesStateContext } from '../../../../context/expenses-context'
@@ -40,7 +40,6 @@ describe('Test in <Budget />', () => {
 
   test('the component should be rendered correctly', () => {
     customRender(<Budget />);
-    cleanup();
   })
 
   test('should change with click', () => {
@@ -48,8 +47,6 @@ describe('Test in <Budget />', () => {
     const buton = screen.getByText('attach_money');
     fireEvent.click(buton);
     expect(screen.getByText('Agregar')).toBeInTheDocument();
-    screen.debug();
-    cleanup();
   })
 
   test('should show the budget', () => {
@@ -96,8 +93,6 @@ describe('Test in <Budget />', () => {
     }
 
     customRender(<Budget />);
-    screen.debug();
-    
   })
   
   

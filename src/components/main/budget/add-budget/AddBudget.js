@@ -8,7 +8,7 @@ export const AddBudget = ({ setIsOpenInput }) => {
       <Paragraph>Comienza agregando un presupuesto</Paragraph>
       <IconMoney
         className="material-icons"
-        onClick={() => setIsOpenInput(true)}
+        onClick={() => setIsOpenInput(isOpen => !isOpen)}
       >
         attach_money
       </IconMoney>
