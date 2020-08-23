@@ -17,7 +17,7 @@ export const Expense = ({
   const dispatchExpense = useExpensesDispatch();
 
   function handleDeleteExpense() {
-    deleteExpenseFromFirebase(id, budgetID, userID, dispatchExpense);
+    deleteExpenseFromFirebase(id, budgetID, userID, dispatchExpense, cost);
   }
 
   return (

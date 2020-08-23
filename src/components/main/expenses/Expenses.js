@@ -9,52 +9,44 @@ import { useForm } from "../../../hooks/useForm";
 import {
   setSpendingFirebase,
   getAllExpensesInBudget,
-  addCostExpenseToSumFirebase,
-  actionDeductMoneyFromBudget,
 } from "../../../actions/expense-actions";
 
 export const Expenses = () => {
-  const [{ currentBudget, expenses }, dispatchExpense] = useExpenses();
+  const [
+    { currentBudget, expenses },
+    dispatchExpense,
+  ] = useExpenses();
   const {
     activeUserData: { uid },
   } = useAuthState();
-
   const [isOpen, setIsOpen] = useState(false);
   const [inputValues, handleInputChange, reset] = useForm({
     name: "",
     category: "",
     cost: "",
   });
-
   useEffect(() => {
-    addCostExpenseToSumFirebase(uid, currentBudget.id, dispatchExpense);
-    if (expenses.length === 0) {
-      getAllExpensesInBudget(uid, currentBudget?.id, dispatchExpense);
-    } else {
+    if (currentBudget.expenses?.length === 0) {
+      getAllExpensesInBudget(uid, currentBudget.id, dispatchExpense);
     }
-    //eslint-disable-next-line
-  }, [uid, currentBudget]);
-
-  if (!currentBudget?.id) {
-    return null;
-  }
+  }, [currentBudget, dispatchExpense, uid]);
 
   function handleExpenseSubmit(event) {
     event.preventDefault();
     const expense = createExpense(inputValues, currentBudget.id, uid);
     setSpendingFirebase(expense, dispatchExpense, uid);
-    dispatchExpense(actionDeductMoneyFromBudget(inputValues.cost));
     setIsOpen(false);
     reset();
+  }
+  
+  if (!currentBudget?.id) {
+    return null;
   }
 
   return (
     <LayoutContainer>
       {!isOpen ? (
-        <ListExpenses
-          setIsOpen={setIsOpen}
-          listExpenses={expenses}
-        />
+        <ListExpenses setIsOpen={setIsOpen} listExpenses={expenses} />
       ) : (
         <ExpenseForm
           setIsOpen={setIsOpen}

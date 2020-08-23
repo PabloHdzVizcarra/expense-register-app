@@ -8,10 +8,7 @@ function ExpensesProvider({ children }) {
   const [state, dispatch] = React.useReducer(expensesReducer, {
     currentBudget: {},
     expenses: [],
-    budgetList: [],
-    valueOfExpenditure: [],
     currentMoney: 0,
-    amountOfExpenditure: 0
   })
 
   return (

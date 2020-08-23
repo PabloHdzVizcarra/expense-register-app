@@ -1,59 +1,53 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { QuoteContainer } from "./Styles";
-import { useSetQuote } from "../../../hooks/useSetQuote";
 import { useAuthState } from "../../../context/auth-context";
 import { useExpenses } from "../../../context/expenses-context";
 import {
   setBudgetFirebase,
   getCurrentBudgetWithFirebase,
   deleteBudgetFromFirebase,
-  actionDeductMoneyFromAllExpense,
 } from "../../../actions/expense-actions";
 import { createBudget } from "./create-budget";
 import { ShowBudget } from "./show-budget/ShowBudget";
 import { getBudgetFromFirebase } from "./get-budget-firebase";
 import { FormBudget } from "./form-budget/FormBudget";
 import { AddBudget } from "./add-budget/AddBudget";
+import { useForm } from "../../../hooks/useForm";
 
 export const Budget = () => {
   const [{
     currentBudget,
     currentMoney,
-    valueOfExpenditure
   }, dispatchExpense] = useExpenses();
-  const { activeUserData: {uid, displayName} } = useAuthState();
-
-  const [
-    money,
-    setValue,
-    handleSetMoney,
-    isOpenInput,
-    setIsOpenInput,
-    value,
-  ] = useSetQuote();
+  const { activeUserData: { uid, displayName } } = useAuthState();
+  const [isOpenInput, setIsOpenInput] = useState(false);
+  const [{ money }, handleInputChange, reset] = useForm({
+    money: ''
+  });
 
   useEffect(() => {
     getCurrentBudgetWithFirebase(getBudgetFromFirebase(uid), dispatchExpense);
-    if (money !== 0) {
+  }, [dispatchExpense, uid]);
+  
+  function handleSetMoney(event) {
+    event.preventDefault();
+    if (money <= 0) {
+      return console.log(
+        "El valor 0 no es valido"
+      );
+    } else {
       const budget = createBudget(money, displayName);
-      setBudgetFirebase(budget, uid);
+      setBudgetFirebase(budget, uid, dispatchExpense);
+      setIsOpenInput(false);
+      reset();
     }
-
-  // eslint-disable-next-line
-  }, [money]);
-
-  useEffect(() => {
-    if (valueOfExpenditure.length !== 0) {
-      dispatchExpense(actionDeductMoneyFromAllExpense(valueOfExpenditure));
-      //deductMoneyFromAllExpenses(valueOfExpenditure, currentMoney, dispatchExpense);
-    }
-   // eslint-disable-next-line
-  }, [valueOfExpenditure]);
-
+  }
+  
   function handleDeleteBudget() {
     const { id } = currentBudget;
     deleteBudgetFromFirebase(id, uid, dispatchExpense);
   }
+
 
   return (
     <QuoteContainer>
@@ -70,8 +64,8 @@ export const Budget = () => {
       {isOpenInput ? (
         <FormBudget
           handleSetMoney={handleSetMoney}
-          setValue={setValue}
-          value={value}
+          money={money}
+          handleInputChange={handleInputChange}
         />
       ) : null}
     </QuoteContainer>

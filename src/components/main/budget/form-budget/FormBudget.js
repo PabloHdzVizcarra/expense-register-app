@@ -2,7 +2,7 @@ import React from "react";
 import { CashInput, Button } from "./Styles";
 import PropTypes from 'prop-types';
 
-export const FormBudget = ({ handleSetMoney, setValue }) => {
+export const FormBudget = ({ handleInputChange, money, handleSetMoney }) => {
   return (
     <form
       style={{
@@ -16,7 +16,9 @@ export const FormBudget = ({ handleSetMoney, setValue }) => {
         autoFocus
         type="text"
         placeholder="Ingresa tu presupuesto"
-        onChange={(e) => setValue(e.target.value)}
+        name='money'
+        value={money}
+        onChange={handleInputChange}
       />
       <Button>Agregar</Button>
     </form>
@@ -25,5 +27,6 @@ export const FormBudget = ({ handleSetMoney, setValue }) => {
 
 FormBudget.propTypes = {
   handleSetMoney: PropTypes.func.isRequired,
-  setValue: PropTypes.func.isRequired
+  handleInputChange: PropTypes.func.isRequired,
+  money: PropTypes.node.isRequired
 }

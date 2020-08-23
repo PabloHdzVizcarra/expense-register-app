@@ -9,4 +9,5 @@ export const types = {
   updateCurrentBudget: "[Expense] Update current budget",
   deductMoneyFromBudget: "[Expense] Decuct money from budget",
   deductMoneyFromAllExpenses: "[Expense] Decuct money from all ",
+  addValueExpenseToTotalAmount: "[Expense] Add value expense to total amount",
 }
