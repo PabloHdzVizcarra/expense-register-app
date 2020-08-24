@@ -8,6 +8,6 @@ export const firebaseSignOut = async () => {
       succes: true,
     };
   } catch (error) {
-    return error;
+    return false;
   }
 };

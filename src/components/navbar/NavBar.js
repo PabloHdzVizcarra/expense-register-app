@@ -9,7 +9,7 @@ export const NavBar = () => {
 
   async function handleSignOut() {
     const result = await firebaseSignOut();
-    if (Object.keys(result).length === 1) {
+    if (result) {
       dispatch({
         activeUserData: {},
         isActive: false

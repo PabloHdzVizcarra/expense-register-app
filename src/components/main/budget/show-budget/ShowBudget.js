@@ -9,7 +9,9 @@ export const ShowBudget = ({
   return (
     <div>
       <Paragraph>Tu presupuesto es de</Paragraph>
-      <ParagraphMoney>${currentMoney}</ParagraphMoney>
+      <ParagraphMoney
+        data-testid="current-money"
+      >${currentMoney}</ParagraphMoney>
       <ButtonDelete onClick={handleDeleteBudget}>
         Eliminar presupuesto
       </ButtonDelete>

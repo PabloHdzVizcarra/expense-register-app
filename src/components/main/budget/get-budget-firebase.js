@@ -1,6 +1,9 @@
 import { db } from "../../../libs/firebase";
 
 export async function getBudgetFromFirebase(uid) {
+  if (!uid) {
+    return false;
+  }
   try {
     const data = [];
     const querySnapshot = await db

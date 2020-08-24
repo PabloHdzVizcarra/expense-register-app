@@ -76,7 +76,11 @@ export const Budget = () => {
           handleInputChange={handleInputChange}
         />
       ) : null}
-      {error.error ? <ErrorMessage message={error.message} /> : null}
+      {error.error ? <ErrorMessage
+        message={error.message} 
+        />
+        : null
+      }
     </QuoteContainer>
   );
 };

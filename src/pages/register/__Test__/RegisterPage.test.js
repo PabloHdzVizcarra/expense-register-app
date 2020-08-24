@@ -9,7 +9,7 @@ import userEvent from "@testing-library/user-event";
 
 describe("Test in <RegisterPage />", () => {
   const module = require("../../../helpers/firebase-user-register");
-  const spyFunction = jest.spyOn(module, "firebaseUserRegister");
+  const spyfirebaseUserRegister = jest.spyOn(module, "firebaseUserRegister");
 
   const theme = {
     colors: {
@@ -119,6 +119,6 @@ describe("Test in <RegisterPage />", () => {
     userEvent.type(inputs[3], "123456");
     userEvent.click(submit);
 
-    expect(spyFunction).toHaveBeenCalled();
+    expect(spyfirebaseUserRegister).toHaveBeenCalled();
   });
 });
