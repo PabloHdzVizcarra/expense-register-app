@@ -34,7 +34,6 @@ export const getCurrentBudgetWithFirebase = async (current, dispatch) => {
 };
 
 export const deleteBudgetFromFirebase = async (docID, userID, dispatch) => {
-  console.log(docID, userID, dispatch);
   try {
     await db
       .collection(userID)

@@ -29,12 +29,17 @@ export const ExpenseForm = ({
       </div>
       <div>
         <InputLabel>Categoria</InputLabel>
-        <Select name="category" onChange={handleInputChange} value={category}>
+        <Select
+          name="category"
+          onChange={handleInputChange}
+          value={category}
+          data-testid="select"
+        >
           <option value="nothing">...</option>
-          <option value="fun">Entretenimiento</option>
-          <option value="food">Comida</option>
-          <option value="transport">Transporte</option>
-          <option value="debts">Deudas</option>
+          <option value="entretenimiiento">Entretenimiento</option>
+          <option value="comida">Comida</option>
+          <option value="transporte">Transporte</option>
+          <option value="deudas">Deudas</option>
         </Select>
       </div>
       <div>

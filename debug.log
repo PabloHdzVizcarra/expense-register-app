@@ -2,3 +2,29 @@
 [0816/005859.289:ERROR:exception_snapshot_win.cc(98)] thread ID 7348 not found in process
 [0816/005859.305:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
 [0816/005859.305:ERROR:exception_snapshot_win.cc(98)] thread ID 244 not found in process
+[0824/141504.538:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.538:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.538:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.538:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.553:ERROR:exception_snapshot_win.cc(98)] thread ID 8908 not found in process
+[0824/141504.553:ERROR:exception_snapshot_win.cc(98)] thread ID 11656 not found in process
+[0824/141504.553:ERROR:exception_snapshot_win.cc(98)] thread ID 9088 not found in process
+[0824/141504.553:ERROR:exception_snapshot_win.cc(98)] thread ID 4016 not found in process
+[0824/141504.553:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.553:ERROR:exception_snapshot_win.cc(98)] thread ID 3484 not found in process
+[0824/141504.553:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.553:ERROR:exception_snapshot_win.cc(98)] thread ID 9716 not found in process
+[0824/141504.569:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.569:ERROR:exception_snapshot_win.cc(98)] thread ID 8044 not found in process
+[0824/141504.569:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.569:ERROR:exception_snapshot_win.cc(98)] thread ID 7812 not found in process
+[0824/141504.569:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.569:ERROR:exception_snapshot_win.cc(98)] thread ID 6576 not found in process
+[0824/141504.569:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.569:ERROR:exception_snapshot_win.cc(98)] thread ID 4668 not found in process
+[0824/141504.569:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.569:ERROR:exception_snapshot_win.cc(98)] thread ID 9684 not found in process
+[0824/141504.585:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.585:ERROR:exception_snapshot_win.cc(98)] thread ID 8212 not found in process
+[0824/141504.585:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acceso denegado} Un proceso ha solicitado acceso a un objeto, pero no se le han concedido esos derechos de acceso. (0xc0000022)
+[0824/141504.585:ERROR:exception_snapshot_win.cc(98)] thread ID 1840 not found in process

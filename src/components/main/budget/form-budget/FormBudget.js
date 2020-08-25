@@ -29,4 +29,4 @@ FormBudget.propTypes = {
   handleSetMoney: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   money: PropTypes.node.isRequired
-}
+};

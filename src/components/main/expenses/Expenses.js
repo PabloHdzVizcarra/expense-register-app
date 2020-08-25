@@ -63,7 +63,7 @@ export const Expenses = () => {
           handleInputChange={handleInputChange}
           handleExpenseSubmit={handleExpenseSubmit}
         />
-        )}
+      )}
       {error.error ? (
         <ErrorMessage message={error.message} />
       ): (

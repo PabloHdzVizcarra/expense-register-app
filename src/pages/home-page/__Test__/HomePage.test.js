@@ -34,7 +34,6 @@ describe('Test in <HomePage />', () => {
   };
 
   test('should render correctly <HomePage />', () => {
-    
     customRender(<HomePage />);
   
   });
