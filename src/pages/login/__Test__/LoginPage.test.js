@@ -97,7 +97,6 @@ describe('Test in <LoginPage />', () => {
   //   const googleButon = screen.getByText('Google');
   //   userEvent.click(googleButon);
   //   expect(spyGoogleLogin).toHaveBeenCalled();
-  //   screen.debug();
   // });
 
 })

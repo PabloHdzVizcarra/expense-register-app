@@ -18,6 +18,7 @@ export const setBudgetFirebase = async (budget, uid, dispatch) => {
 
   } catch (error) {
     console.log(error);
+    return console.log('Error');
   }
 };
 

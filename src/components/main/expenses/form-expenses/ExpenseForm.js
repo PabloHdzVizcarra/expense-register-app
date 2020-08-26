@@ -36,7 +36,7 @@ export const ExpenseForm = ({
           data-testid="select"
         >
           <option value="nothing">...</option>
-          <option value="entretenimiiento">Entretenimiento</option>
+          <option value="entretenimiento">Entretenimiento</option>
           <option value="comida">Comida</option>
           <option value="transporte">Transporte</option>
           <option value="deudas">Deudas</option>
