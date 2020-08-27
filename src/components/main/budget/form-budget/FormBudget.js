@@ -9,6 +9,7 @@ export const FormBudget = ({ handleInputChange, money, handleSetMoney }) => {
         display: "flex",
         flexDirection: "column",
         width: "80%",
+        alignItems: "center",
       }}
       onSubmit={(event) => handleSetMoney(event)}
     >

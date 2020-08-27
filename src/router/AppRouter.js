@@ -10,6 +10,7 @@ import { firebaseGetActiveUser} from '../helpers/firebase-get-active-user'
 import { useAuth } from '../context/auth-context';
 import { PublicRoute } from './PublicRoute';
 import { PageRouter } from './PageRouter';
+import { Spinner } from '../components/spinner/Spinner';
 
 export const AppRouter = () => {
 
@@ -21,7 +22,7 @@ export const AppRouter = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return <p>Loading</p>
+    return <Spinner />
   }
   
   return (

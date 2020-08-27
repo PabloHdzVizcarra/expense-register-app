@@ -58,14 +58,15 @@ describe("Tests in <Expenses /> component", () => {
     renderTest(authContext, expensesContext);
     expect(screen.getByRole("button", /Agregar gasto/)).toBeInTheDocument();
   });
+  
 
   test("when you press the add expense button, the expense entry form should appear", () => {
     renderTest(authContext, expensesContext);
-    userEvent.click(screen.getByRole("button", /Agregar gasto/));
+    userEvent.click(screen.getByRole("button", /Agregar gasto/i));
     const inputs = screen.getAllByRole("textbox");
     expect(inputs[0]).toBeInTheDocument();
     expect(inputs[1]).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /Agregar/ })).toBeInTheDocument();
+    expect(screen.getByRole('button', {name: /agregar/i})).toBeInTheDocument();
     expect(screen.getByRole("combobox")).toBeInTheDocument();
   });
 
@@ -101,6 +102,7 @@ describe("Tests in <Expenses /> component", () => {
     expect(spyValidateExpenseForm).toHaveBeenCalled();
     expect(screen.getByTestId("error-message")).toBeInTheDocument();
   });
+
   test("when entering data that does not meet the requirements of the form, you should appreciate the message", async () => {
     renderTest(authContext, expensesContext);
     userEvent.click(screen.getByRole("button", /Agregar gasto/));
@@ -113,6 +115,7 @@ describe("Tests in <Expenses /> component", () => {
     expect(spyValidateExpenseForm).toHaveBeenCalled();
     expect(screen.getByTestId("error-message")).toBeInTheDocument();
   });
+
   test("if the requirements of the form are met, you must call the function createExpense and setSpendingFirebase and you must create the expense", async () => {
     const spyCreateExpense = jest.spyOn(CreateExpense, "createExpense");
     const spyActions = jest.spyOn(Actions, "setSpendingFirebase");

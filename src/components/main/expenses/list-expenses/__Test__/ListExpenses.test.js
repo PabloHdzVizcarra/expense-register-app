@@ -32,26 +32,32 @@ describe('Test in <ListExpenses /> component', () => {
     );
   }
 
-  test('if the component has no expenses, the button to add expenses must be shown', () => {
-    render(<ListExpenses
-      listExpenses={[]}
-      setIsOpen={jest.fn()}
-    />);
-    expect(screen.getByRole('button', { name: 'Agregar gasto' }));
-  });
+  test('should ', () => {
 
-  test('if the component has expenses, these must be shown on the screen', () => {
-    const spyExpense = jest.spyOn(Component, 'Expense');
-    renderTest();
-    expect(screen.getByRole('button', { name: 'Agregar gasto' }));
-    expect(spyExpense).toHaveBeenCalled();
+    
   });
+  
 
-  test('when you click on the add expense button, you must call the setIsOpen function', () => {
-    renderTest();
-    userEvent.click(screen.getByRole('button', { name: 'Agregar gasto' }));
-    expect(setIsOpen).toHaveBeenCalled();
-  });
+  // test('if the component has no expenses, the button to add expenses must be shown', () => {
+  //   render(<ListExpenses
+  //     listExpenses={[]}
+  //     setIsOpen={jest.fn()}
+  //   />);
+  //   expect(screen.getByRole('button', { name: 'Agregar gasto' }));
+  // });
+
+  // test('if the component has expenses, these must be shown on the screen', () => {
+  //   const spyExpense = jest.spyOn(Component, 'Expense');
+  //   renderTest();
+  //   expect(screen.getByRole('button', { name: 'Agregar gasto' }));
+  //   expect(spyExpense).toHaveBeenCalled();
+  // });
+
+  // test('when you click on the add expense button, you must call the setIsOpen function', () => {
+  //   renderTest();
+  //   userEvent.click(screen.getByRole('button', { name: 'Agregar gasto' }));
+  //   expect(setIsOpen).toHaveBeenCalled();
+  // });
   
   
 })

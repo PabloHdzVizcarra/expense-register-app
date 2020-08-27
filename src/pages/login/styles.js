@@ -16,7 +16,7 @@ export const FormContainer = styled.form`
   display: grid;
   width: 85%;
   gap: 20px;
-  background-color: ${props => props.theme.colors.pl};
+  background-color: #673ab7;
   padding: 1rem;
   border-radius: 6px;
   font-family: 'Titillium Web', sans-serif;
@@ -117,7 +117,7 @@ export const OtherButtons = styled.div`
     transition: 300ms ease color;
 
     &:hover {
-      color: #000;
+      color: #82a027;
     }
   }
 `;

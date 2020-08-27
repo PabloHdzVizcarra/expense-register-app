@@ -18,20 +18,25 @@ export const setBudgetFirebase = async (budget, uid, dispatch) => {
 
   } catch (error) {
     console.log(error);
-    return console.log('Error');
   }
 };
 
 export const getCurrentBudgetWithFirebase = async (current, dispatch) => {
-  const currentBudget = await current;
-  if (!currentBudget?.expenses) {
-    return false;
+  try {
+    
+    const currentBudget = await current;
+    if (!currentBudget?.expenses) {
+      return false;
+    }
+    currentBudget.expenses.reverse();
+    dispatch(actionSetBudget(currentBudget));
+    dispatch({
+      type: types.setAllExpensesInBudget,
+      payload: currentBudget.expenses
+    });
+  } catch (error) {
+    console.log(error);
   }
-  dispatch(actionSetBudget(currentBudget));
-  dispatch({
-    type: types.setAllExpensesInBudget,
-    payload: currentBudget.expenses
-  })
 };
 
 export const deleteBudgetFromFirebase = async (docID, userID, dispatch) => {
@@ -52,13 +57,14 @@ export const deleteBudgetFromFirebase = async (docID, userID, dispatch) => {
 
 export const setSpendingFirebase = async (expense, dispatch, userID) => {
   const { budgetID } = expense;
-  const expenseRef = db
-    .collection(userID)
-    .doc("budgets")
-    .collection("budget")
-    .doc(budgetID);
-
+  
   try {
+    const expenseRef = db
+      .collection(userID)
+      .doc("budgets")
+      .collection("budget")
+      .doc(budgetID);
+    
     await expenseRef.update({
       expenses: firebase.firestore.FieldValue.arrayUnion(expense),
     });

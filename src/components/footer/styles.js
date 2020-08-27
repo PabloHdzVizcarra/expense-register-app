@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.div`
-  background-color: #0d47a1;
+  background-color: #5e35b1;
   grid-column: 1/3;
   grid-row: 3/4;
   height: 2.2rem;

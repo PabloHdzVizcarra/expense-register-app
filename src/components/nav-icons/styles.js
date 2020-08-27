@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { respondTo } from "../../styles/_respondTo";
 
 
 export const ContainerNavIcons = styled.div`
@@ -10,8 +11,12 @@ export const ContainerNavIcons = styled.div`
   grid-column: 1 /2;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, .1);
+
+  ${respondTo.md`
+    width: 50px;
+  `}
 `;
 
 export const IconStyle = styled.span`
-  color: hsl(43 96% 70% / 1);
+  color: #6d8c1e;
 `;

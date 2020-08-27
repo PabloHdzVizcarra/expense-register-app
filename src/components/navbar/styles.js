@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import { respondTo } from "../../styles/_respondTo";
 
 
 export const Nav = styled.nav`
   grid-column: 1 /3;
   display: flex;
-  background-color: #1976D2;
+  background-color: #4527A0;
   height: 50px;
   align-items: center;
   justify-content: space-between;
@@ -16,6 +17,10 @@ export const Nav = styled.nav`
 export const MainTitle = styled.h1`
   margin: 0 0 0 10px;
   color: #fff;
+
+  ${respondTo.md`
+    font-size: 2.3rem;
+  `}
 `;
 
 export const ButtonDelete = styled.button`

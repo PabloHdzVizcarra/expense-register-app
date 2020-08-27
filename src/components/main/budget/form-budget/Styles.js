@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { respondTo } from "../../../../styles/_respondTo";
 
 export const CashInput = styled.input`
   margin-top: 16px;
@@ -12,6 +13,10 @@ export const CashInput = styled.input`
   &:focus {
     outline: none;
   }
+
+  ${respondTo.sm`
+    width: 60%;
+  `}
 `;
 
 export const Button = styled.button`
@@ -23,14 +28,20 @@ export const Button = styled.button`
   cursor: pointer;
   font-size: 1.2rem;
   background-color: #fff;
+  width: 100%;
 
   transition: 300ms ease background;
 
   &:hover {
-    background-color: hsl(0 0% 90% / 1);
+    color: #fff;
+    background-color: #82a027;
   }
 
   &:focus {
     outline: none;
   }
+
+  ${respondTo.sm`
+    width: 60%;
+  `}
 `;

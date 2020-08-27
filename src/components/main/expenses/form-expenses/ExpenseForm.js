@@ -7,6 +7,7 @@ export const ExpenseForm = ({
   inputValues,
   handleInputChange,
   handleExpenseSubmit,
+  handleShowButton
 }) => {
   const { name, category, cost } = inputValues;
 
@@ -14,7 +15,7 @@ export const ExpenseForm = ({
     <Form onSubmit={handleExpenseSubmit}>
       <TitleContainer>
         <p>Agrega tu gasto</p>
-        <IconClose className="material-icons" onClick={() => setIsOpen(false)}>
+        <IconClose className="material-icons" onClick={handleShowButton}>
           cancel
         </IconClose>
       </TitleContainer>

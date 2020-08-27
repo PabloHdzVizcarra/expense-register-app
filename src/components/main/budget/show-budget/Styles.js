@@ -11,6 +11,7 @@ export const ParagraphMoney = styled.p`
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   padding: 0 10px;
+  text-align: center;
 `;
 
 export const ButtonDelete = styled.button`

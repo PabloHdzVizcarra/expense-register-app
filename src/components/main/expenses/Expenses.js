@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LayoutContainer } from "./expense-styles";
+import { LayoutContainer, ExpensesContainer } from "./styles";
 import { ExpenseForm } from "./form-expenses/ExpenseForm";
 import { ListExpenses } from "./list-expenses/ListExpenses";
 import { useExpenses } from "../../../context/expenses-context";
@@ -9,8 +9,10 @@ import { useForm } from "../../../hooks/useForm";
 import { setSpendingFirebase } from "../../../actions/expense-actions";
 import { validateExpenseForm } from "./validate-expense-form";
 import { ErrorMessage } from "../../errorMessage/ErrorMessage";
+import { Button } from './styles';
 
 export const Expenses = () => {
+  const [showAddButton, setShowAddButton] = useState(true);
   const [{ currentBudget, expenses }, dispatchExpense] = useExpenses();
   const {
     activeUserData: { uid },
@@ -44,31 +46,53 @@ export const Expenses = () => {
     const expense = createExpense(inputValues, currentBudget.id, uid);
     setSpendingFirebase(expense, dispatchExpense, uid);
     setIsOpen(isOpen => !isOpen);
+    setShowAddButton(open => !open);
     reset();
   }
 
   if (!currentBudget?.id) {
     return null;
   }
+  
+  function handleNotShowButton() {
+    setIsOpen(true);
+    setShowAddButton(false);
+  }
+
+  function handleShowButton() {
+    setIsOpen(false);
+    setShowAddButton(true);
+  }
 
   return (
     <LayoutContainer>
-      {!isOpen ? (
-        <ListExpenses setIsOpen={setIsOpen} listExpenses={expenses} />
-      ) : (
-        <ExpenseForm
-          setIsOpen={setIsOpen}
-          budgetID={currentBudget.id}
-          inputValues={inputValues}
-          handleInputChange={handleInputChange}
-          handleExpenseSubmit={handleExpenseSubmit}
-        />
-      )}
-      {error.error ? (
-        <ErrorMessage message={error.message} />
-      ): (
-        null
-      )}
+      <ExpensesContainer> 
+        {!isOpen ? (
+          <ListExpenses setIsOpen={setIsOpen} listExpenses={expenses} />
+        ) : (
+            <ExpenseForm
+            handleShowButton={handleShowButton}
+            setShowAddButton={setShowAddButton}
+            setIsOpen={setIsOpen}
+            budgetID={currentBudget.id}
+            inputValues={inputValues}
+            handleInputChange={handleInputChange}
+            handleExpenseSubmit={handleExpenseSubmit}
+          />
+        )}
+        {error.error ? (
+          <ErrorMessage message={error.message} />
+        ): (
+          null
+          )}
+      </ExpensesContainer>
+      {(showAddButton)
+        ? <Button
+          onClick={handleNotShowButton}>Agregar gasto</Button>
+        : null
+
+      }
+      
     </LayoutContainer>
   );
 };

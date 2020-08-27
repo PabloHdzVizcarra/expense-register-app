@@ -7,11 +7,13 @@ import userEvent from '@testing-library/user-event';
 describe('Test in <ShowBudget /> component', () => {
   const handleDeleteBudget = jest.fn();
   const currentMoney = 1000;
+  const currentBudget = { money: 1000}
 
   test('the component must be rendered correctly', () => {
     render(<ShowBudget
       handleDeleteBudget={handleDeleteBudget}
       currentMoney={currentMoney}
+      currentBudget={currentBudget}
     />);
     expect(screen.getByTestId('current-money')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Eliminar/i })).toBeInTheDocument();
@@ -21,6 +23,7 @@ describe('Test in <ShowBudget /> component', () => {
     render(<ShowBudget
       handleDeleteBudget={handleDeleteBudget}
       currentMoney={currentMoney}
+      currentBudget={currentBudget}
     />);
 
     userEvent.click(screen.getByText(/Eliminar/i));

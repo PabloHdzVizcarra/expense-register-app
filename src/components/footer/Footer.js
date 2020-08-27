@@ -1,5 +1,5 @@
 import React from 'react'
-import { FooterContainer, Paragraph } from './Footer-styles';
+import { FooterContainer, Paragraph } from './styles';
 
 export const Footer = () => {
   return (

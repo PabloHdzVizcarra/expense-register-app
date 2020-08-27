@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Expense } from "../expense/Expense";
-import { Button } from "./styles";
 
-export const ListExpenses = ({ listExpenses, setIsOpen }) => {
+export const ListExpenses = ({ listExpenses }) => {
   return (
     <div>
       {listExpenses.length === 0 ? (
@@ -26,12 +25,10 @@ export const ListExpenses = ({ listExpenses, setIsOpen }) => {
           )}
         </div>
       )}
-      <Button onClick={() => setIsOpen(true)}>Agregar gasto</Button>
     </div>
   );
 };
 
 ListExpenses.propTypes = {
   listExpenses: PropTypes.array.isRequired,
-  setIsOpen: PropTypes.func.isRequired,
 };

@@ -1,10 +1,9 @@
-import React from 'react'
-import { Nav, MainTitle, ButtonDelete } from './styles'
-import { firebaseSignOut } from './firebase-sign-out';
-import { useAuthDispatch } from '../../context/auth-context';
+import React from "react";
+import { Nav, MainTitle, ButtonDelete } from "./styles";
+import { firebaseSignOut } from "./firebase-sign-out";
+import { useAuthDispatch } from "../../context/auth-context";
 
 export const NavBar = () => {
-
   const dispatch = useAuthDispatch();
 
   async function handleSignOut() {
@@ -12,21 +11,15 @@ export const NavBar = () => {
     if (result) {
       dispatch({
         activeUserData: {},
-        isActive: false
-      })
+        isActive: false,
+      });
     }
-    
   }
 
   return (
     <Nav>
       <MainTitle>Tus Gastos</MainTitle>
-      <ButtonDelete
-        onClick={handleSignOut}
-      >
-        Cerrar sesion
-      </ButtonDelete>
+      <ButtonDelete onClick={handleSignOut}>Cerrar sesion</ButtonDelete>
     </Nav>
-  )
-}
-
+  );
+};

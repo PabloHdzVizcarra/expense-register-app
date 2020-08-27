@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { respondTo } from "../../../styles/_respondTo";
 
 export const QuoteContainer = styled.div`
   grid-column: 1/4;
@@ -11,6 +12,15 @@ export const QuoteContainer = styled.div`
   font-family: 'Titillium Web', sans-serif;
   background-color: #fff;
   padding-bottom: 16px;
+
+  ${respondTo.md`
+    grid-column: 1/2;
+    grid-row: 1/4;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+  `}
+
 `;
 
 export const Paragraph = styled.p`

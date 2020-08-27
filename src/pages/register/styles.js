@@ -5,7 +5,7 @@ export const FormContainer = styled.form`
   display: grid;
   width: 85%;
   gap: 5px;
-  background-color: ${props => props.theme.colors.pl};
+  background-color: #673ab7;
   padding: 1rem;
   border-radius: 6px;
   font-family: 'Titillium Web', sans-serif;

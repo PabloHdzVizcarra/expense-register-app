@@ -1,12 +1,11 @@
 import styled from "styled-components";
+import { respondTo } from "../../../../styles/_respondTo";
 
 export const Form = styled.form`
   display: flex;
   height: 100%;
   flex-direction: column;
   padding: 20px;
-  /* justify-content: center; */
-  /* align-items: center; */
 `;
 
 export const TitleContainer = styled.div`
@@ -32,27 +31,31 @@ export const IconClose = styled.span`
 `;
 
 export const Button = styled.button`
-font-family: 'Titillium Web', sans-serif;
-padding: 4px;
-border-radius: 6px;
-border: 1px solid rgba(0, 0, 0, .1);
-cursor: pointer;
-background-color: #1E88E5;
-font-size: .8rem;
-width: 30%;
-color: #fff;
-margin-top: 10px;
-
-transition: 300ms ease background-color;
-
-&:hover {
-  background-color: hsl(208 79% 44% / 1);
+  font-family: 'Titillium Web', sans-serif;
+  padding: 4px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  cursor: pointer;
+  background-color: #6d8c1e;
+  font-size: .8rem;
+  width: 30%;
   color: #fff;
-}
+  margin-top: 10px;
 
-&:focus {
-  outline: none;
-}
+  transition: 300ms ease background-color;
+
+  &:hover {
+    background-color: hsl(77 65% 28% / 1);
+      color: #fff;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  ${respondTo.sm`
+    font-size: 1rem;
+  `}
 
 `;
 

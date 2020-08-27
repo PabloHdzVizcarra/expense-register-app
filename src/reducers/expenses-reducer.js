@@ -25,7 +25,7 @@ export function expensesReducer(state = {}, action) {
     case types.setExpenseBudget:
       return {
         ...state,
-        expenses: [...state.expenses, action.payload],
+        expenses: [ action.payload, ...state.expenses],
         currentMoney: state.currentMoney - action.payload.cost
       }
     case types.setAllExpensesInBudget:
