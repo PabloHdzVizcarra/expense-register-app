@@ -3,7 +3,6 @@ import { Form, TitleContainer, IconClose, Button, InputLabel, Input, Select } fr
 import PropTypes from "prop-types";
 
 export const ExpenseForm = ({
-  setIsOpen,
   inputValues,
   handleInputChange,
   handleExpenseSubmit,
@@ -58,7 +57,7 @@ export const ExpenseForm = ({
 };
 
 ExpenseForm.propTypes = {
-  setIsOpen: PropTypes.func.isRequired,
+  handleShowButton: PropTypes.func.isRequired,
   inputValues: PropTypes.object.isRequired,
   handleInputChange: PropTypes.func.isRequired,
   handleExpenseSubmit: PropTypes.func.isRequired,

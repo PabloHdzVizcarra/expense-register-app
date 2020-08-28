@@ -20,7 +20,8 @@ export function expensesReducer(state = {}, action) {
     case types.deleteCurrentBudget:
       return {
         ...state,
-        currentBudget: {}
+        currentBudget: {},
+        expenses: [],
       }
     case types.setExpenseBudget:
       return {

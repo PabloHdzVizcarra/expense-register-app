@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: grid;
   gap: 10px;
   min-height: 100vh;
+  max-height: 100vh;
   padding: 0 1rem;
   grid-template-rows: min-content;
   color: #486b0a;
@@ -70,9 +71,11 @@ export const TextSecondary = styled.div`
 
 export const Image = styled.div`
   justify-self: center;
+  display: flex;
+  justify-content: center;
 
   img {
-    max-width: 100%;
+    max-width: 60%;
   }
 
   ${respondTo.md`

@@ -6,7 +6,7 @@ export const LayoutContainer = styled.div`
   grid-column: 1/4;
   grid-row: 2/4;
   padding: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,7 @@ export const ExpensesContainer = styled.div`
   height: 100%;
   width: 100%;
   flex-direction: column;
-  max-height: 380px;
+  /* max-height: 250px; */
   overflow: auto;
 
   ${respondTo.sm`

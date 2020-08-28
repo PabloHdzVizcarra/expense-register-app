@@ -51,7 +51,7 @@ export const Budget = () => {
       });
     }
   }
-
+  
   function handleDeleteBudget() {
     const { id } = currentBudget;
     deleteBudgetFromFirebase(id, uid, dispatchExpense);
